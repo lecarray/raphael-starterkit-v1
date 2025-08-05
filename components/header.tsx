@@ -25,7 +25,8 @@ export default function Header({ user }: HeaderProps) {
   const mainNavItems: NavItem[] = [
     { label: "Home", href: "/" },
     { label: "Popular Names", href: "/product/popular-names" },
-    { label: "About", href: "/product/about" },
+    { label: "About", href: "/about" },
+    { label: "Blog", href: "/blog" },
   ];
 
   // Dashboard items - empty array as we don't want navigation items in dashboard

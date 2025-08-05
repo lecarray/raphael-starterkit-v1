@@ -39,10 +39,6 @@ export default function AboutPage() {
             transition={{ duration: 0.5 }}
             className="text-center space-y-6"
           >
-            <div className="inline-flex items-center rounded-full px-3 py-1 text-sm bg-primary/10 text-primary mb-4">
-              <span className="mr-2">🇨🇳</span>
-              Connecting Cultures Through Names
-            </div>
             <h2 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
               Bridging Cultures with
               <br />
@@ -81,12 +77,12 @@ export default function AboutPage() {
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                   <Users className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>Our Community</CardTitle>
+                <CardTitle>Our Vision</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  We've helped thousands of people worldwide discover their perfect Chinese names, 
-                  fostering cultural appreciation and personal connection to Chinese heritage.
+                  We envision a world where cultural bridges are built through meaningful names, 
+                  connecting people across different backgrounds with Chinese heritage and traditions.
                 </p>
               </CardContent>
             </Card>
@@ -94,17 +90,67 @@ export default function AboutPage() {
             <Card className="border-2 hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
-                  <Globe className="h-6 w-6 text-primary" />
+                  <Sparkles className="h-6 w-6 text-primary" />
                 </div>
-                <CardTitle>Global Impact</CardTitle>
+                <CardTitle>Our Approach</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  From students studying abroad to business professionals working in China, 
-                  our platform serves people seeking authentic cultural connection worldwide.
+                  We combine advanced AI technology with deep cultural knowledge to create authentic 
+                  Chinese names that respect tradition while meeting modern personalization needs.
                 </p>
               </CardContent>
             </Card>
+          </motion.div>
+
+          {/* How Our AI Works Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="space-y-8"
+          >
+            <div className="text-center">
+              <h3 className="text-3xl font-bold mb-4">How Our AI Works</h3>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+                Our advanced AI technology combines cultural wisdom with personalization
+              </p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-3">
+              <Card className="border-2 hover:shadow-lg transition-shadow">
+                <CardContent className="p-8 space-y-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary text-xl font-bold mx-auto">
+                    1
+                  </div>
+                  <h4 className="text-xl font-bold text-center">Input Analysis</h4>
+                  <p className="text-muted-foreground text-center">
+                    Our AI analyzes your English name, gender preference, and personality traits to understand your unique characteristics.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="border-2 hover:shadow-lg transition-shadow">
+                <CardContent className="p-8 space-y-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary text-xl font-bold mx-auto">
+                    2
+                  </div>
+                  <h4 className="text-xl font-bold text-center">Cultural Matching</h4>
+                  <p className="text-muted-foreground text-center">
+                    Advanced algorithms match your profile with appropriate Chinese characters that carry positive meanings and cultural significance.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="border-2 hover:shadow-lg transition-shadow">
+                <CardContent className="p-8 space-y-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary text-xl font-bold mx-auto">
+                    3
+                  </div>
+                  <h4 className="text-xl font-bold text-center">Name Generation</h4>
+                  <p className="text-muted-foreground text-center">
+                    Generate multiple personalized Chinese names with detailed meanings, pronunciations, and cultural context.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </motion.div>
 
           {/* Story Section */}
@@ -205,6 +251,52 @@ export default function AboutPage() {
                     We make Chinese name generation accessible to everyone, regardless of their 
                     background or familiarity with Chinese culture.
                   </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Contact & Support Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="space-y-6"
+          >
+            <div className="bg-muted/30 rounded-2xl p-8 md:p-12">
+              <h3 className="text-3xl font-bold mb-6">Contact & Support</h3>
+              <p className="text-muted-foreground text-lg leading-relaxed mb-8">
+                Have questions about our AI Chinese name generator or need assistance? Our team is here to help you on your 
+                journey to finding the perfect Chinese name that reflects your personality and honors Chinese cultural traditions.
+              </p>
+              <div className="grid gap-6 md:grid-cols-2">
+                <div className="space-y-4">
+                  <h4 className="font-semibold text-foreground text-lg">Get in Touch</h4>
+                  <div className="space-y-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-primary font-semibold">Email:</span>
+                      <a href="mailto:support@chinesename.club" className="text-primary hover:text-primary/80 underline underline-offset-4">
+                        support@chinesename.club
+                      </a>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <span className="text-primary font-semibold">Website:</span>
+                      <a href="https://chinesename.club" className="text-primary hover:text-primary/80 underline underline-offset-4">
+                        chinesename.club
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  <h4 className="font-semibold text-foreground text-lg">Quick Links</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <Link href="/privacy" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</Link>
+                    </div>
+                    <div>
+                      <Link href="/terms" className="text-muted-foreground hover:text-primary transition-colors">Terms of Use</Link>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

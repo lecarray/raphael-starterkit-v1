@@ -51,7 +51,7 @@ export default function TermsPage() {
               By using our service, you agree to these terms and conditions.
             </p>
             <p className="text-sm text-muted-foreground">
-              <strong>Last updated:</strong> January 31, 2025
+              <strong>Last updated:</strong> August 1, 2025
             </p>
           </motion.div>
 
@@ -251,7 +251,7 @@ export default function TermsPage() {
             </div>
           </motion.div>
 
-          {/* Payment Terms */}
+          {/* Payment and Credit Terms */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -259,27 +259,93 @@ export default function TermsPage() {
             className="space-y-8"
           >
             <div className="bg-muted/30 rounded-2xl p-8">
-              <h3 className="text-2xl font-bold mb-6">Payment and Subscription Terms</h3>
+              <h3 className="text-2xl font-bold mb-6">Payment and Credit Terms</h3>
               
-              <div className="grid gap-6 md:grid-cols-2">
-                <div>
-                  <h4 className="font-semibold mb-3">Premium Subscriptions</h4>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li>• Monthly and annual subscription options available</li>
-                    <li>• Automatic renewal unless cancelled</li>
-                    <li>• Access to unlimited name generation</li>
-                    <li>• Premium features and personalization</li>
-                  </ul>
+              <div className="space-y-6">
+                {/* Credit System Overview */}
+                <div className="bg-primary/5 rounded-lg p-6 border border-primary/10">
+                  <h4 className="font-semibold mb-4 text-primary">💳 Credit System</h4>
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <strong className="text-foreground">One-time Purchase:</strong> $5 USD = 1,000 credits
+                      </p>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <strong className="text-foreground">Standard Generation:</strong> 1 credit per name
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        <strong className="text-foreground">Premium Generation:</strong> 4 credits per name
+                      </p>
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground mb-2">
+                        <strong className="text-foreground">Free Trial:</strong> 3 names daily (no registration)
+                      </p>
+                      <p className="text-sm text-muted-foreground">
+                        <strong className="text-foreground">Credits never expire</strong> once purchased
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                
-                <div>
-                  <h4 className="font-semibold mb-3">Cancellation and Refunds</h4>
-                  <ul className="space-y-2 text-muted-foreground">
-                    <li>• Cancel anytime through your account settings</li>
-                    <li>• Refunds processed according to our refund policy</li>
-                    <li>• No refunds for partially used subscription periods</li>
-                    <li>• Free trial cancellations take effect immediately</li>
-                  </ul>
+
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div>
+                    <h4 className="font-semibold mb-3">💰 Payment Terms</h4>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• <strong>One-time payments only</strong> - no subscriptions or auto-billing</li>
+                      <li>• Secure payment processing through Creem.io</li>
+                      <li>• Credits delivered instantly upon successful payment</li>
+                      <li>• All prices in USD, taxes may apply based on location</li>
+                      <li>• Payment methods: Credit cards, debit cards, and other supported options</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-3">🔄 Refund Policy</h4>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• <strong>7-day satisfaction guarantee</strong> from purchase date</li>
+                      <li>• Refunds calculated based on unused credits only</li>
+                      <li>• Contact <strong>support@chinesename.club</strong> to request refund</li>
+                      <li>• Processing time: 5-7 business days to original payment method</li>
+                      <li>• No refunds after 7 days or for terms violations</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div className="grid gap-6 md:grid-cols-2">
+                  <div>
+                    <h4 className="font-semibold mb-3">⚖️ Credit Usage Rules</h4>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• Credits deducted immediately upon name generation</li>
+                      <li>• View credit balance in your account dashboard</li>
+                      <li>• Credits are non-transferable between accounts</li>
+                      <li>• No cash value except through eligible refunds</li>
+                    </ul>
+                  </div>
+                  
+                  <div>
+                    <h4 className="font-semibold mb-3">🔧 Dispute Resolution</h4>
+                    <ul className="space-y-2 text-muted-foreground">
+                      <li>• First contact: <strong>support@chinesename.club</strong></li>
+                      <li>• Response time: 24-48 hours for all inquiries</li>
+                      <li>• Escalation available for unresolved issues</li>
+                      <li>• Good faith effort to resolve all payment disputes</li>
+                    </ul>
+                  </div>
+                </div>
+
+                {/* Important Notice */}
+                <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                  <div className="flex items-start gap-3">
+                    <div className="text-amber-500 mt-0.5">⚠️</div>
+                    <div>
+                      <h5 className="font-semibold text-amber-800 mb-1">Important Notice</h5>
+                      <p className="text-sm text-amber-700">
+                        All sales are final after the 7-day refund period. Please ensure you understand the credit system 
+                        and generation costs before purchasing. For questions about our service, try the free daily generations first.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

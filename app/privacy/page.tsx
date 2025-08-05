@@ -51,7 +51,7 @@ export default function PrivacyPage() {
               use, and protect your personal information when you use our Chinese name generation service.
             </p>
             <p className="text-sm text-muted-foreground">
-              <strong>Last updated:</strong> January 31, 2025
+              <strong>Last updated:</strong> August 1, 2025
             </p>
           </motion.div>
 
