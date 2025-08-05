@@ -31,9 +31,9 @@ const pricingTiers: PricingTier[] = [
     credits: 1,
     description: "Perfect for trying out our service",
     features: [
-      "1 free name generation",
-      "Basic name analysis",
-      "Cultural significance",
+      "3 free name generations daily",
+      "Standard generation only",
+      "Basic cultural significance", 
       "Pinyin pronunciation",
       "No registration required"
     ],
@@ -46,15 +46,17 @@ const pricingTiers: PricingTier[] = [
     name: "Credit Pack",
     price: "$5",
     credits: 1000,
-    description: "Best value for regular users",
+    description: "Best value for unlimited generations",
     features: [
       "1000 credits included",
-      "Standard & Premium generation",
-      "Personality-based matching",
-      "Custom name preferences",
-      "Unlimited name variations",
-      "Save favorite names",
-      "Export to PDF"
+      "💎 Standard Generation (1 credit) - Quality names with cultural significance",
+      "👑 Premium Generation (4 credits) - Advanced AI with personality matching",
+      "Detailed cultural analysis & character breakdowns",
+      "Save unlimited favorite names",
+      "Export names to beautiful PDF certificates",
+      "Access to popular names database",
+      "Priority customer support",
+      "Credits never expire"
     ],
     icon: <Crown className="h-6 w-6" />,
     popular: true,
@@ -153,7 +155,7 @@ export default function ChineseNamePricing({ onScrollToForm }: ChineseNamePricin
               Choose Your Plan
             </h2>
             <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
-              Start with a free trial or get the best value with our credit pack for unlimited Chinese name generation
+              Start with a free trial, then unlock unlimited generations with both Standard and Premium AI quality
             </p>
           </motion.div>
 
@@ -280,9 +282,21 @@ export default function ChineseNamePricing({ onScrollToForm }: ChineseNamePricin
             <h3 className="text-xl font-semibold text-foreground">
               Questions about pricing?
             </h3>
-            <p className="text-muted-foreground">
-              Credits never expire and can be used for both Standard (1 credit) and Premium (4 credits) generations.
-            </p>
+            <div className="space-y-2">
+              <p className="text-muted-foreground">
+                Credits never expire and can be used for both Standard (1 credit) and Premium (4 credits) generations.
+              </p>
+              <div className="grid md:grid-cols-2 gap-4 text-sm bg-muted/20 p-4 rounded-lg">
+                <div className="space-y-1">
+                  <p className="font-medium text-foreground">💎 Standard Generation (1 Credit)</p>
+                  <p className="text-muted-foreground">Basic AI analysis, cultural significance, good name quality</p>
+                </div>
+                <div className="space-y-1">
+                  <p className="font-medium text-foreground">👑 Premium Generation (4 Credits)</p>
+                  <p className="text-muted-foreground">Advanced AI, personality matching, deep cultural analysis</p>
+                </div>
+              </div>
+            </div>
             <div className="flex flex-wrap justify-center gap-4 text-sm text-muted-foreground">
               <span className="flex items-center gap-1">
                 <Check className="h-3 w-3 text-green-500" />

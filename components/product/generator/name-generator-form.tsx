@@ -234,21 +234,63 @@ export default function NameGeneratorForm({ onGenerate, isGenerating, hasTriedFr
               <RadioGroup
                 onValueChange={(value) => form.setValue("planType", value as "1" | "4")}
                 defaultValue={form.getValues("planType")}
-                className="grid grid-cols-1 gap-2"
+                className="grid grid-cols-1 gap-3"
               >
-                <div className="flex items-center space-x-2 px-4 py-3 bg-muted/50 rounded-lg hover:bg-muted/70 transition-colors">
-                  <RadioGroupItem value="1" id="standard" />
-                  <Label htmlFor="standard" className="font-medium cursor-pointer flex-grow">
-                    Standard (1 Credit)
-                  </Label>
+                <div className="relative">
+                  <div className="flex items-center space-x-3 px-4 py-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors border border-border">
+                    <RadioGroupItem value="1" id="standard" />
+                    <div className="flex-grow">
+                      <Label htmlFor="standard" className="font-medium cursor-pointer flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl">💎</span>
+                          <div>
+                            <p className="font-semibold text-foreground">Standard Generation</p>
+                            <p className="text-sm text-muted-foreground">Good quality, cultural significance</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-lg font-bold text-primary">1 Credit</p>
+                          <p className="text-xs text-muted-foreground">~$0.005 value</p>
+                        </div>
+                      </Label>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2 px-4 py-3 bg-muted/50 rounded-lg hover:bg-muted/70 transition-colors">
-                  <RadioGroupItem value="4" id="premium" />
-                  <Label htmlFor="premium" className="font-medium cursor-pointer flex-grow">
-                    Premium (4 Credits)
-                  </Label>
+                <div className="relative">
+                  <div className="flex items-center space-x-3 px-4 py-4 bg-gradient-to-r from-primary/5 to-primary/10 rounded-lg hover:from-primary/10 hover:to-primary/15 transition-colors border border-primary/20">
+                    <RadioGroupItem value="4" id="premium" />
+                    <div className="flex-grow">
+                      <Label htmlFor="premium" className="font-medium cursor-pointer flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-2xl">👑</span>
+                          <div>
+                            <p className="font-semibold text-foreground">Premium Generation</p>
+                            <p className="text-sm text-muted-foreground">Advanced AI, personality matching</p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-lg font-bold text-primary">4 Credits</p>
+                          <p className="text-xs text-muted-foreground">~$0.02 value</p>
+                        </div>
+                      </Label>
+                    </div>
+                  </div>
+                  <div className="absolute -top-2 -right-2">
+                    <span className="bg-primary text-primary-foreground text-xs px-2 py-1 rounded-full font-medium">
+                      Recommended
+                    </span>
+                  </div>
                 </div>
               </RadioGroup>
+              
+              {/* Pricing info */}
+              {!user && (
+                <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800">
+                  <p className="text-sm text-amber-800 dark:text-amber-200">
+                    💡 <strong>Need credits?</strong> Check our pricing below - Credit Pack ($5) includes 1000 credits, perfect for unlimited Premium generations!
+                  </p>
+                </div>
+              )}
             </div>
 
             {/* Submit Button */}
@@ -265,11 +307,14 @@ export default function NameGeneratorForm({ onGenerate, isGenerating, hasTriedFr
               ) : user ? (
                 hasEnoughCredits ? (
                   <>
-                    Generate Name
-                    <span className="ml-2 text-base opacity-80">({creditCost} Credits)</span>
+                    {creditCost === 1 ? '💎 Generate Standard Name' : '👑 Generate Premium Name'}
+                    <span className="ml-2 text-base opacity-80">({creditCost} Credit{creditCost > 1 ? 's' : ''})</span>
                   </>
                 ) : (
-                  "Insufficient Credits"
+                  <>
+                    Insufficient Credits 
+                    <span className="ml-2 text-sm opacity-80">(Need {creditCost - currentCredits} more)</span>
+                  </>
                 )
               ) : hasTriedFree ? (
                 "Sign Up for More"
