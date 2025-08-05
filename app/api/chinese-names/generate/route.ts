@@ -8,13 +8,6 @@ const openai = new OpenAI({
   apiKey: process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY || '',
 });
 
-// Check API key on startup
-console.log('OpenAI/OpenRouter API configuration:', {
-  baseURL: process.env.OPENAI_BASE_URL || "https://openrouter.ai/api/v1",
-  hasApiKey: !!(process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY),
-  keyLength: (process.env.OPENROUTER_API_KEY || process.env.OPENAI_API_KEY || '').length
-});
-
 interface GenerateNameRequest {
   englishName: string;
   gender: 'male' | 'female' | 'other';

@@ -24,19 +24,11 @@ export async function POST(request: NextRequest) {
     const appid = process.env.DOUBAO_TTS_APPID;
     const accessToken = process.env.DOUBAO_TTS_ACCESS_TOKEN;
     
-    console.log('TTS Config Check:', { 
-      hasAppid: !!appid, 
-      hasAccessToken: !!accessToken,
-      appidLength: appid?.length,
-      tokenLength: accessToken?.length 
-    });
-    
     if (!appid || !accessToken) {
-      console.error('TTS Configuration Missing:', { appid: !!appid, accessToken: !!accessToken });
-      return NextResponse.json({ 
-        error: 'TTS service not configured',
-        message: 'Voice playback is currently unavailable. Please check the TTS configuration.' 
-      }, { status: 503 });
+      return NextResponse.json(
+        { error: 'TTS service not configured' }, 
+        { status: 503 }
+      );
     }
 
     // Generate unique request ID
