@@ -161,7 +161,7 @@ export default function AboutPage() {
             className="prose prose-lg max-w-none"
           >
             <div className="bg-muted/30 rounded-2xl p-8 md:p-12">
-              <h3 className="text-2xl font-bold mb-6 flex items-center gap-3">
+              <h3 className="text-2xl font-bold mb-6 flex items-center justify-center gap-3">
                 <Sparkles className="h-6 w-6 text-primary" />
                 Our Story
               </h3>
@@ -264,22 +264,22 @@ export default function AboutPage() {
             className="space-y-6"
           >
             <div className="bg-muted/30 rounded-2xl p-8 md:p-12">
-              <h3 className="text-3xl font-bold mb-6">Contact & Support</h3>
+              <h3 className="text-3xl font-bold mb-6 text-center">Contact & Support</h3>
               <p className="text-muted-foreground text-lg leading-relaxed mb-8">
                 Have questions about our AI Chinese name generator or need assistance? Our team is here to help you on your 
                 journey to finding the perfect Chinese name that reflects your personality and honors Chinese cultural traditions.
               </p>
               <div className="grid gap-6 md:grid-cols-2">
-                <div className="space-y-4">
+                <div className="space-y-4 text-center" id="get-in-touch">
                   <h4 className="font-semibold text-foreground text-lg">Get in Touch</h4>
                   <div className="space-y-3">
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center justify-center space-x-3">
                       <span className="text-primary font-semibold">Email:</span>
                       <a href="mailto:support@chinesename.club" className="text-primary hover:text-primary/80 underline underline-offset-4">
                         support@chinesename.club
                       </a>
                     </div>
-                    <div className="flex items-center space-x-3">
+                    <div className="flex items-center justify-center space-x-3">
                       <span className="text-primary font-semibold">Website:</span>
                       <a href="https://chinesename.club" className="text-primary hover:text-primary/80 underline underline-offset-4">
                         chinesename.club
@@ -287,7 +287,7 @@ export default function AboutPage() {
                     </div>
                   </div>
                 </div>
-                <div className="space-y-4">
+                <div className="space-y-4 text-center">
                   <h4 className="font-semibold text-foreground text-lg">Quick Links</h4>
                   <div className="space-y-3">
                     <div>

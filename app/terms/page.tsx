@@ -391,7 +391,7 @@ export default function TermsPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="outline">
-                <Link href="/contact">
+                <Link href="/about#get-in-touch">
                   Contact Support
                 </Link>
               </Button>

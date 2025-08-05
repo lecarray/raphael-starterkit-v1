@@ -41,21 +41,22 @@ export default function BlogPage() {
           >
             <div className="inline-flex items-center rounded-full px-3 py-1 text-sm bg-primary/10 text-primary mb-4">
               <BookOpen className="mr-2 h-4 w-4" />
-              2025 实用指南
+              2025 Practical Guide
             </div>
             <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-              如何为自己取一个好听又有寓意的中文名字
+              How to Choose a Beautiful and Meaningful Chinese Name
             </h1>
             <div className="bg-muted/30 rounded-lg p-6">
               <p className="text-lg text-muted-foreground leading-relaxed">
-                <strong>快速摘要：</strong>本篇文章将带你了解中文名字的文化背景、命名结构、选字原则，并演示如何借助 
-                <Link href="/" className="text-primary hover:text-primary/80 underline underline-offset-4">chinesename.club</Link> 
-                一键生成符合个性与寓意的中文名字。
+                <strong>Quick Summary:</strong> This article will guide you through the cultural background of Chinese names, 
+                naming structures, character selection principles, and demonstrate how to use 
+                <Link href="/" className="text-primary hover:text-primary/80 underline underline-offset-4"> ChineseName.club</Link> 
+                to generate personalized Chinese names that match your personality and desired meanings.
               </p>
             </div>
           </motion.div>
 
-          {/* Section 1: 为什么需要中文名字 */}
+          {/* Section 1: Why Need Chinese Name */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -64,17 +65,17 @@ export default function BlogPage() {
           >
             <h2 className="text-3xl font-bold text-foreground flex items-center gap-3">
               <Heart className="h-8 w-8 text-primary" />
-              为什么需要一个专属的中文名字？
+              Why Do You Need a Chinese Name?
             </h2>
             <div className="grid gap-4 md:grid-cols-3">
               <Card className="border-2 hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <Users className="h-5 w-5 text-primary" />
-                    <h4 className="font-semibold">文化沟通</h4>
+                    <h4 className="font-semibold">Cultural Communication</h4>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    与华语社群沟通更自然，减少文化隔阂
+                    Communicate more naturally with Chinese-speaking communities and reduce cultural barriers
                   </p>
                 </CardContent>
               </Card>
@@ -82,10 +83,10 @@ export default function BlogPage() {
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <Sparkles className="h-5 w-5 text-primary" />
-                    <h4 className="font-semibold">社交优势</h4>
+                    <h4 className="font-semibold">Social Advantage</h4>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    提升在中文社交媒体、求职与学习场景中的亲和力
+                    Enhance your affinity in Chinese social media, job hunting, and learning scenarios
                   </p>
                 </CardContent>
               </Card>
@@ -93,24 +94,24 @@ export default function BlogPage() {
                 <CardContent className="p-6">
                   <div className="flex items-center gap-3 mb-3">
                     <Globe className="h-5 w-5 text-primary" />
-                    <h4 className="font-semibold">文化尊重</h4>
+                    <h4 className="font-semibold">Cultural Respect</h4>
                   </div>
                   <p className="text-muted-foreground text-sm">
-                    展现对中国文化的尊重与兴趣
+                    Demonstrate respect and interest in Chinese culture and traditions
                   </p>
                 </CardContent>
               </Card>
             </div>
           </motion.section>
 
-          {/* Section 2: 文化基础 */}
+          {/* Section 2: Cultural Foundation */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
             className="space-y-6"
           >
-            <h2 className="text-3xl font-bold text-foreground">中文起名的文化基础</h2>
+            <h2 className="text-3xl font-bold text-foreground">Cultural Foundation of Chinese Naming</h2>
             <div className="grid gap-6 md:grid-cols-2">
               <Card className="border-2">
                 <CardContent className="p-6 space-y-4">
@@ -118,11 +119,11 @@ export default function BlogPage() {
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <span className="text-primary font-bold text-sm">1</span>
                     </div>
-                    <h4 className="text-lg font-bold">姓氏（Family Name）</h4>
+                    <h4 className="text-lg font-bold">Family Name (Surname)</h4>
                   </div>
                   <ul className="space-y-2 text-muted-foreground text-sm">
-                    <li>• 中国常用姓氏约 500 个，前 100 姓占全国人口 85% 以上</li>
-                    <li>• 姓氏位于名字首位，通常为 1 个汉字</li>
+                    <li>• China has about 500 common surnames, with the top 100 surnames covering over 85% of the population</li>
+                    <li>• Surnames come first in Chinese names and usually consist of 1 Chinese character</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -132,75 +133,76 @@ export default function BlogPage() {
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center">
                       <span className="text-primary font-bold text-sm">2</span>
                     </div>
-                    <h4 className="text-lg font-bold">名字（Given Name）</h4>
+                    <h4 className="text-lg font-bold">Given Name</h4>
                   </div>
                   <ul className="space-y-2 text-muted-foreground text-sm">
-                    <li>• 常见 1–2 个汉字组成，3 字名也日渐流行</li>
-                    <li>• 讲究字义、音韵与五行（偏信者使用）</li>
+                    <li>• Commonly composed of 1-2 Chinese characters, 3-character names are also becoming popular</li>
+                    <li>• Emphasizes meaning, phonetics, and the Five Elements (used by those who believe in it)</li>
                   </ul>
                 </CardContent>
               </Card>
             </div>
             <div className="bg-amber-50 border border-amber-200 rounded-lg p-4">
               <p className="text-amber-800 text-sm">
-                <strong>温馨提示：</strong>若你没有明确偏好，可以优先选择常见姓氏，如「陈」「李」「王」等，避免发音难度过大。
+                <strong>Warm Tip:</strong> If you don't have specific preferences, you can prioritize common surnames like 
+                「陈」「李」「王」to avoid excessive pronunciation difficulty.
               </p>
             </div>
           </motion.section>
 
-          {/* Section 3: 名字结构表格 */}
+          {/* Section 3: Name Structure Table */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             className="space-y-6"
           >
-            <h2 className="text-3xl font-bold text-foreground">中文名字的3种常见结构</h2>
+            <h2 className="text-3xl font-bold text-foreground">3 Common Structures of Chinese Names</h2>
             <div className="overflow-x-auto">
               <table className="w-full border-collapse border border-border rounded-lg">
                 <thead>
                   <tr className="bg-muted/50">
-                    <th className="border border-border p-4 text-left font-semibold">结构</th>
-                    <th className="border border-border p-4 text-left font-semibold">示例</th>
-                    <th className="border border-border p-4 text-left font-semibold">适用场景</th>
+                    <th className="border border-border p-4 text-left font-semibold">Structure</th>
+                    <th className="border border-border p-4 text-left font-semibold">Example</th>
+                    <th className="border border-border p-4 text-left font-semibold">Usage Scenario</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="border border-border p-4">单名（姓 + 1 字）</td>
-                    <td className="border border-border p-4 font-mono">王 伟</td>
-                    <td className="border border-border p-4 text-muted-foreground">简洁有力，常见于男性</td>
+                    <td className="border border-border p-4">Single Name (Surname + 1 Character)</td>
+                    <td className="border border-border p-4 font-mono">王伟 (Wang Wei)</td>
+                    <td className="border border-border p-4 text-muted-foreground">Concise and powerful, common for males</td>
                   </tr>
                   <tr className="bg-muted/20">
-                    <td className="border border-border p-4">双名（姓 + 2 字）</td>
-                    <td className="border border-border p-4 font-mono">李 思涵</td>
-                    <td className="border border-border p-4 text-muted-foreground">含义丰富，性别中性</td>
+                    <td className="border border-border p-4">Double Name (Surname + 2 Characters)</td>
+                    <td className="border border-border p-4 font-mono">李思涵 (Li Sihan)</td>
+                    <td className="border border-border p-4 text-muted-foreground">Rich in meaning, gender-neutral</td>
                   </tr>
                   <tr>
-                    <td className="border border-border p-4">复姓（2 字姓 + 1–2 字名）</td>
-                    <td className="border border-border p-4 font-mono">司徒 墨</td>
-                    <td className="border border-border p-4 text-muted-foreground">个性独特，需注意读音</td>
+                    <td className="border border-border p-4">Compound Surname (2-Character Surname + 1-2 Characters)</td>
+                    <td className="border border-border p-4 font-mono">司徒墨 (Situ Mo)</td>
+                    <td className="border border-border p-4 text-muted-foreground">Unique personality, attention to pronunciation needed</td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </motion.section>
 
-          {/* Section 4: 选字原则 */}
+          {/* Section 4: Golden Principles */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.5 }}
             className="space-y-6"
           >
-            <h2 className="text-3xl font-bold text-foreground">选字的5个黄金原则</h2>
+            <h2 className="text-3xl font-bold text-foreground">5 Golden Principles for Character Selection</h2>
             <div className="grid gap-4">
               {[
-                { number: "1", title: "寓意积极", desc: "避开消极或敏感词" },
-                { number: "2", title: "读音悦耳", desc: "声母、韵母避免拗口连读；普通话四声组合舒缓" },
-                { number: "3", title: "书写美观", desc: "笔画不过于繁杂，会影响书写体验" },
-                { number: "4", title: "重名率低", desc: "使用工具查询全国同名人数，彰显独特性" },
-                { number: "5", title: "拼音易读", desc: "方便外国朋友或系统录入" }
+                { number: "1", title: "Positive Meaning", desc: "Avoid negative or sensitive words" },
+                { number: "2", title: "Pleasant Pronunciation", desc: "Avoid awkward consonant and vowel combinations; harmonious tones in Mandarin" },
+                { number: "3", title: "Beautiful Writing", desc: "Not overly complex strokes, as it affects writing experience" },
+                { number: "4", title: "Low Repetition Rate", desc: "Use tools to check national name frequency for uniqueness" },
+                { number: "5", title: "Easy Pinyin", desc: "Convenient for foreign friends or system input" }
               ].map((principle, index) => (
                 <Card key={index} className="border-2">
                   <CardContent className="p-4">
@@ -219,23 +221,23 @@ export default function BlogPage() {
             </div>
           </motion.section>
 
-          {/* Section 5: 实战演练 */}
+          {/* Section 5: Hands-on Practice */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
             className="space-y-6"
           >
-            <h2 className="text-3xl font-bold text-foreground">实战演练：用 chinesename.club 3 步生成名字</h2>
+            <h2 className="text-3xl font-bold text-foreground">Hands-on Practice: Generate Names with ChineseName.club in 3 Steps</h2>
             <div className="grid gap-6 md:grid-cols-3">
               <Card className="border-2 border-primary/20 bg-primary/5">
                 <CardContent className="p-6 space-y-4">
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <span className="text-primary font-bold text-lg">1</span>
                   </div>
-                  <h4 className="font-bold">访问生成器</h4>
+                  <h4 className="font-bold">Visit the Generator</h4>
                   <p className="text-muted-foreground text-sm">
-                    打开 → <Link href="/" className="text-primary hover:text-primary/80 underline">chinesename.club</Link>
+                    Open → <Link href="/" className="text-primary hover:text-primary/80 underline">ChineseName.club</Link>
                   </p>
                 </CardContent>
               </Card>
@@ -244,10 +246,10 @@ export default function BlogPage() {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <span className="text-primary font-bold text-lg">2</span>
                   </div>
-                  <h4 className="font-bold">填写偏好</h4>
+                  <h4 className="font-bold">Fill Your Preferences</h4>
                   <ul className="text-muted-foreground text-sm space-y-1">
-                    <li>• 性别、期望寓意（如「智慧」「勇敢」）</li>
-                    <li>• 可选「Personality Traits」「Name Preferences」字段</li>
+                    <li>• Gender, desired meanings (e.g., "wisdom", "courage")</li>
+                    <li>• Optional "Personality Traits" and "Name Preferences" fields</li>
                   </ul>
                 </CardContent>
               </Card>
@@ -256,52 +258,50 @@ export default function BlogPage() {
                   <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-4">
                     <span className="text-primary font-bold text-lg">3</span>
                   </div>
-                  <h4 className="font-bold">一键生成 & 收藏</h4>
+                  <h4 className="font-bold">Generate & Save Favorites</h4>
                   <ul className="text-muted-foreground text-sm space-y-1">
-                    <li>• 系统返回 5–10 个候选名，附带拼音与含义解析</li>
-                    <li>• 点击「收藏」加入个人列表，后续可下载证书或 TTS 语音</li>
+                    <li>• System returns 5-10 candidate names with pinyin and meaning analysis</li>
+                    <li>• Click "Save" to add to your personal list, download certificates or use TTS voice later</li>
                   </ul>
                 </CardContent>
               </Card>
             </div>
-            <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-              <p className="text-blue-800 text-sm">
-                <strong>内部链接建议：</strong> 在此段落加入锚文本链接到站内
-                <Link href="/product/popular-names" className="text-primary hover:text-primary/80 underline mx-1">热门名字</Link>
-                <Link href="/#pricing" className="text-primary hover:text-primary/80 underline mx-1">定价</Link>
-                等页面，提高爬虫抓取效率。
+            <div className="text-center mt-6">
+              <p className="text-muted-foreground text-sm mb-4">
+                Explore more features: <Link href="/product/popular-names" className="text-primary hover:text-primary/80 underline mx-1">Popular Names</Link> • 
+                <Link href="/#pricing" className="text-primary hover:text-primary/80 underline mx-1">Pricing</Link>
               </p>
             </div>
           </motion.section>
 
-          {/* Section 6: 检验名字 */}
+          {/* Section 6: Verification */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.7 }}
             className="space-y-6"
           >
-            <h2 className="text-3xl font-bold text-foreground">如何检验名字的发音与含义？</h2>
+            <h2 className="text-3xl font-bold text-foreground">How to Verify Your Name's Pronunciation and Meaning</h2>
             <div className="grid gap-4">
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
                 <div>
-                  <strong>发音测试：</strong>
-                  <span className="text-muted-foreground ml-2">使用站内 TTS 朗读功能 或 Google。</span>
+                  <strong>Pronunciation Test:</strong>
+                  <span className="text-muted-foreground ml-2">Use built-in TTS reading function or Google Translate.</span>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
                 <div>
-                  <strong>含义核对：</strong>
-                  <span className="text-muted-foreground ml-2">查询《康熙字典》或《规范汉字表》。</span>
+                  <strong>Meaning Verification:</strong>
+                  <span className="text-muted-foreground ml-2">Check "Kangxi Dictionary" or "Standard Chinese Character Table".</span>
                 </div>
               </div>
               <div className="flex items-start gap-3">
                 <CheckCircle className="h-5 w-5 text-green-500 mt-1" />
                 <div>
-                  <strong>社交试用：</strong>
-                  <span className="text-muted-foreground ml-2">邀请 3–5 位母语朋友点评读音与印象。</span>
+                  <strong>Social Testing:</strong>
+                  <span className="text-muted-foreground ml-2">Invite 3-5 native speaker friends to comment on pronunciation and impressions.</span>
                 </div>
               </div>
             </div>
@@ -314,29 +314,32 @@ export default function BlogPage() {
             transition={{ duration: 0.5, delay: 0.8 }}
             className="space-y-6"
           >
-            <h2 className="text-3xl font-bold text-foreground">常见 FAQ</h2>
+            <h2 className="text-3xl font-bold text-foreground">Frequently Asked Questions</h2>
             <div className="space-y-4">
               <Card className="border-2">
                 <CardContent className="p-6">
-                  <h4 className="font-semibold mb-2 text-primary">问：我可以用自己的英文名谐音取中文名吗？</h4>
+                  <h4 className="font-semibold mb-2 text-primary">Q: Can I use the pronunciation of my English name to create a Chinese name?</h4>
                   <p className="text-muted-foreground text-sm">
-                    <strong>答：</strong>可以，但需确保读音自然，避免强行照搬。例如「Anna」可音译为「安娜」。
+                    <strong>A:</strong> Yes, but ensure the pronunciation sounds natural and avoid forcing the transliteration. 
+                    For example, "Anna" can be transliterated as "安娜" (An Na).
                   </p>
                 </CardContent>
               </Card>
               <Card className="border-2">
                 <CardContent className="p-6">
-                  <h4 className="font-semibold mb-2 text-primary">问：双名是否比单名更受欢迎？</h4>
+                  <h4 className="font-semibold mb-2 text-primary">Q: Are double names more popular than single names?</h4>
                   <p className="text-muted-foreground text-sm">
-                    <strong>答：</strong>都市地区双名更普遍；单名经典简洁，选择取决于个人风格。
+                    <strong>A:</strong> Double names are more common in urban areas; single names are classic and concise. 
+                    The choice depends on personal style.
                   </p>
                 </CardContent>
               </Card>
               <Card className="border-2">
                 <CardContent className="p-6">
-                  <h4 className="font-semibold mb-2 text-primary">问：生成的名字会不会重复？</h4>
+                  <h4 className="font-semibold mb-2 text-primary">Q: Will the generated names be duplicated?</h4>
                   <p className="text-muted-foreground text-sm">
-                    <strong>答：</strong>chinesename.club 会自动检测常见重名并提示替换选项。
+                    <strong>A:</strong> ChineseName.club automatically detects common name duplications and suggests 
+                    alternative options to ensure uniqueness.
                   </p>
                 </CardContent>
               </Card>
@@ -350,15 +353,16 @@ export default function BlogPage() {
             transition={{ duration: 0.5, delay: 0.9 }}
             className="text-center bg-gradient-to-r from-primary/5 via-primary/10 to-primary/5 rounded-2xl p-8 md:p-12"
           >
-            <h2 className="text-3xl font-bold mb-4">结语：让中文名字成为你的文化名片</h2>
+            <h2 className="text-3xl font-bold mb-4">Conclusion: Let Your Chinese Name Become Your Cultural Bridge</h2>
             <p className="text-muted-foreground mb-8 max-w-2xl mx-auto text-lg">
-              一个好的中文名字不仅仅是一串字符，更是你与中文世界沟通的桥梁。立即访问 chinesename.club，探索属于你的中文名字吧！
+              A good Chinese name is not just a string of characters - it's a bridge for you to communicate with the Chinese world. 
+              Visit ChineseName.club now and explore your unique Chinese name!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <span className="text-2xl">👉</span>
               <Button asChild size="lg" className="font-medium text-lg px-8 py-3">
                 <Link href="/">
-                  马上生成 → 点击进入中文名字生成器
+                  Generate Now → Enter Chinese Name Generator
                 </Link>
               </Button>
             </div>
