@@ -64,6 +64,54 @@ const popularNames: PopularName[] = [
     gender: "male",
     popularity: 83,
     cultural_significance: "Name honoring academic excellence and broad knowledge"
+  },
+  {
+    chinese: "赵思源",
+    pinyin: "Zhào Sīyuán",
+    meaning: "思考之源 - 代表深度思维和智慧",
+    gender: "male",
+    popularity: 82,
+    cultural_significance: "体现哲学深度和求知欲的名字"
+  },
+  {
+    chinese: "孙晓雪",
+    pinyin: "Sūn Xiǎoxuě",
+    meaning: "晨雪 - 象征纯洁和新的开始",
+    gender: "female",
+    popularity: 81,
+    cultural_significance: "庆祝自然美和新开端的诗意名字"
+  },
+  {
+    chinese: "周建华",
+    pinyin: "Zhōu Jiànhuá",
+    meaning: "建设华彩 - 代表建设和成就",
+    gender: "male",
+    popularity: 80,
+    cultural_significance: "体现建设和创造持久价值雄心的名字"
+  },
+  {
+    chinese: "马悦心",
+    pinyin: "Mǎ Yuèxīn",
+    meaning: "快乐之心 - 象征幸福和情感健康",
+    gender: "female",
+    popularity: 79,
+    cultural_significance: "庆祝内心喜悦和积极精神的名字"
+  },
+  {
+    chinese: "吴天宇",
+    pinyin: "Wú Tiānyǔ",
+    meaning: "天地宇宙 - 代表广阔和宇宙联系",
+    gender: "unisex",
+    popularity: 78,
+    cultural_significance: "激发无限梦想和宇宙视角的名字"
+  },
+  {
+    chinese: "郑安琪",
+    pinyin: "Zhèng Ānqí",
+    meaning: "安宁美玉 - 象征宁静和珍贵美丽",
+    gender: "female",
+    popularity: 77,
+    cultural_significance: "结合宁静与珍贵宝石价值的名字"
   }
 ];
 

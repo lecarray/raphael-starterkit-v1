@@ -292,7 +292,7 @@ export default function Home() {
       <section className="py-20 bg-gradient-to-b from-background to-muted/20" data-popular-names>
         <div className="container px-4 md:px-6">
           <div className="mx-auto max-w-6xl">
-            <PopularNames onScrollToGenerator={scrollToForm} />
+            <PopularNames showAll={true} onScrollToGenerator={scrollToForm} />
           </div>
         </div>
       </section>
