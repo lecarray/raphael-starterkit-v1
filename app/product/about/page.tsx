@@ -122,7 +122,7 @@ export default function AboutPage() {
                     <li>Detailed cultural meanings and context</li>
                     <li>Advanced pronunciation guides</li>
                     <li>Character analysis and etymology</li>
-                    <li>Priority customer support</li>
+                    <li>Priority customer support (support@chinesename.club)</li>
                     <li>Export and save functionality</li>
                   </ul>
                 </CardContent>

@@ -55,7 +55,7 @@ const pricingTiers: PricingTier[] = [
       "Save unlimited favorite names",
       "Export names to beautiful PDF certificates",
       "Access to popular names database",
-      "Priority customer support",
+      "Priority customer support (support@chinesename.club)",
       "Credits never expire"
     ],
     icon: <Crown className="h-6 w-6" />,

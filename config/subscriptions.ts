@@ -27,7 +27,7 @@ export const SUBSCRIPTION_TIERS: ProductTier[] = [
     features: [
       "Everything in Starter",
       "Multi-currency payments",
-      "Priority support",
+      "Priority support (support@chinesename.club)",
       "Advanced analytics",
       "Custom branding options",
       "API usage dashboard",
@@ -82,7 +82,7 @@ export const CREDITS_TIERS: ProductTier[] = [
       "6 credits for use across all features",
       "No expiration date",
       "Priority processing",
-      "Basic email support"
+      "Email support (support@chinesename.club)"
     ],
     featured: true,
     discountCode: "", // Optional discount code

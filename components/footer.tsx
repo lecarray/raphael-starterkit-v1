@@ -27,6 +27,13 @@ const footerLinks = [
       { label: "Terms", href: "/terms" },
     ],
   },
+  {
+    title: "Support",
+    links: [
+      { label: "Contact Us", href: "mailto:support@chinesename.club" },
+      { label: "Help Center", href: "/product/about#help" },
+    ],
+  },
 ];
 
 export function Footer() {

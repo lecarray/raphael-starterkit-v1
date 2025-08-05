@@ -11,7 +11,7 @@ type QuickActionsCardProps = {
 
 const DEFAULT_ACTIONS: QuickAction[] = [
   { label: "View Plans", href: "#pricing" },
-  { label: "Get Support", href: "#support" },
+  { label: "Get Support", href: "mailto:support@chinesename.club" },
 ];
 
 export function QuickActionsCard({
