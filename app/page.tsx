@@ -393,7 +393,7 @@ export default function Home() {
               <p className="mx-auto max-w-2xl text-muted-foreground text-lg">
                 Discover the perfect Chinese name that represents your identity, personality, and cultural connection.
                 <br />
-                Join thousands who have found their authentic Chinese identity.
+                Join others in discovering an authentic Chinese name.
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
                 <button 

@@ -310,10 +310,10 @@ export default function ChineseNamePricing({ onScrollToForm }: ChineseNamePricin
                 <Check className="h-3 w-3 text-green-500" />
                 24/7 support
               </span>
-              <span className="flex items-center gap-1">
+              <a href="/terms#refund-policy" className="flex items-center gap-1 hover:text-primary transition-colors">
                 <Check className="h-3 w-3 text-green-500" />
                 Money-back guarantee
-              </span>
+              </a>
             </div>
           </motion.div>
         </div>

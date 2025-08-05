@@ -122,7 +122,7 @@ export default function BlogPage() {
                     <h4 className="text-lg font-bold">Family Name (Surname)</h4>
                   </div>
                   <ul className="space-y-2 text-muted-foreground text-sm">
-                    <li>• China has about 500 common surnames, with the top 100 surnames covering over 85% of the population</li>
+                    <li>• China has approximately 500 common surnames, with the top 100 surnames covering approximately 85% of the population</li>
                     <li>• Surnames come first in Chinese names and usually consist of 1 Chinese character</li>
                   </ul>
                 </CardContent>

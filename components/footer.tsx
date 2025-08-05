@@ -71,6 +71,14 @@ export function Footer() {
           </div>
         </div>
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t pt-8 md:flex-row">
+          <div className="w-full text-center">
+            <a 
+              href="mailto:support@chinesename.club" 
+              className="text-sm text-muted-foreground hover:text-primary transition-colors"
+            >
+              support@chinesename.club
+            </a>
+          </div>
         </div>
       </div>
     </footer>

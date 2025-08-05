@@ -300,7 +300,7 @@ export default function TermsPage() {
                     </ul>
                   </div>
                   
-                  <div>
+                  <div id="refund-policy">
                     <h4 className="font-semibold mb-3">🔄 Refund Policy</h4>
                     <ul className="space-y-2 text-muted-foreground">
                       <li>• <strong>7-day satisfaction guarantee</strong> from purchase date</li>

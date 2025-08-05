@@ -178,6 +178,14 @@ export default function PopularNames({ showAll = false, onScrollToGenerator }: P
         >
           Discover popular Chinese names created by our AI and loved by our community worldwide
         </motion.p>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.15 }}
+          className="text-muted-foreground text-sm max-w-2xl mx-auto mt-2"
+        >
+          *Popularity ratings represent our system's recommendation scores based on cultural significance and naming trends, not actual user ratings
+        </motion.p>
       </div>
 
       {/* Names Grid */}
