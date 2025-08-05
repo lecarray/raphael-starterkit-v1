@@ -34,7 +34,7 @@ interface FormData {
 
 interface SessionData {
   names: NameData[];
-  formData: FormData;
+  formData: FormData | null;  // 👈 修复：允许 null
   batch: any;
   generationRound: number;
   totalGenerationRounds: number;
@@ -105,7 +105,8 @@ export default function ResultsPage() {
 
   // Save current state to sessionStorage when data changes
   useEffect(() => {
-    if (isDataLoaded && generatedNames.length > 0) {
+    // 👈 修复：只有数据完整时才保存
+    if (isDataLoaded && generatedNames.length > 0 && currentFormData) {
       const sessionData: SessionData = {
         names: generatedNames,
         formData: currentFormData,
