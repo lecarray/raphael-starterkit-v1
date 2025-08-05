@@ -283,14 +283,6 @@ export default function NameGeneratorForm({ onGenerate, isGenerating, hasTriedFr
                 </div>
               </RadioGroup>
               
-              {/* Pricing info */}
-              {!user && (
-                <div className="mt-3 p-3 bg-amber-50 dark:bg-amber-950/20 rounded-lg border border-amber-200 dark:border-amber-800">
-                  <p className="text-sm text-amber-800 dark:text-amber-200">
-                    💡 <strong>Need credits?</strong> Check our pricing below - Credit Pack ($5) includes 1000 credits, perfect for unlimited Premium generations!
-                  </p>
-                </div>
-              )}
             </div>
 
             {/* Submit Button */}
