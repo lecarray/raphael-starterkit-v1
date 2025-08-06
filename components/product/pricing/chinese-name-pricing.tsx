@@ -110,7 +110,7 @@ export default function ChineseNamePricing({ onScrollToForm }: ChineseNamePricin
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          productType: 'chinese-name-credits',
+          productType: 'credits',
           quantity: 1000, // 1000 credits
           userId: user.id,
         }),
