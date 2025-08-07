@@ -294,7 +294,10 @@ export default function NameGeneratorForm({ onGenerate, isGenerating, hasTriedFr
               {isGenerating ? (
                 <div className="flex items-center gap-2">
                   <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                  Generating...
+                  <div className="flex flex-col items-center">
+                    <span>AI is creating your names...</span>
+                    <span className="text-xs opacity-75">This usually takes 10-15 seconds</span>
+                  </div>
                 </div>
               ) : user ? (
                 hasEnoughCredits ? (

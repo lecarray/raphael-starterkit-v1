@@ -37,6 +37,7 @@ interface NameData {
 
 export async function POST(request: NextRequest) {
   console.log('=== Chinese Names Generate API Called ===');
+  const startTime = Date.now(); // Performance tracking
   try {
     const supabase = await createClient();
     
@@ -181,25 +182,23 @@ export async function POST(request: NextRequest) {
     const names: NameData[] = [];
     const nameCount = user ? 6 : 3; // Free users get 3 names, authenticated users get 6
 
-    // Generate names
-    console.log('Starting name generation loop:', { nameCount, user: !!user });
-    for (let i = 0; i < nameCount; i++) {
-      try {
-        const randomSurname = commonSurnames[Math.floor(Math.random() * commonSurnames.length)];
-        const randomSeed = Date.now() + Math.random() * 10000 + i * 1000;
-        const uniquePromptId = Math.random().toString(36).substring(2, 15);
+    // Generate names in parallel for better performance
+    console.log('Starting parallel name generation:', { nameCount, user: !!user });
+    const aiStartTime = Date.now();
+    
+    // Create array of generation promises
+    const generationPromises = Array.from({ length: nameCount }, (_, i) => {
+      const randomSurname = commonSurnames[Math.floor(Math.random() * commonSurnames.length)];
+      const randomSeed = Date.now() + Math.random() * 10000 + i * 1000;
+      const uniquePromptId = Math.random().toString(36).substring(2, 15);
 
-        // Build personalization info
-        let personalInfo = `English Name: ${englishName}`;
-        if (birthYear) personalInfo += `\nBirth Year: ${birthYear}`;
-        if (personalityTraits && user) personalInfo += `\nPersonality Traits: ${personalityTraits}`;
-        if (namePreferences && user) personalInfo += `\nName Preferences: ${namePreferences}`;
+      // Build personalization info
+      let personalInfo = `English Name: ${englishName}`;
+      if (birthYear) personalInfo += `\nBirth Year: ${birthYear}`;
+      if (personalityTraits && user) personalInfo += `\nPersonality Traits: ${personalityTraits}`;
+      if (namePreferences && user) personalInfo += `\nName Preferences: ${namePreferences}`;
 
-        const existingNamesString = generatedNames.size > 0 
-          ? `\n\nEXISTING NAMES TO AVOID:\n${Array.from(generatedNames).join(', ')}\n- DO NOT generate any of these names\n- Ensure complete uniqueness from existing names`
-          : '';
-
-        const prompt = `Generate a Chinese name as JSON only. No text before or after the JSON.
+      const prompt = `Generate a Chinese name as JSON only. No text before or after the JSON.
 
 Input Requirements:
 - ${personalInfo}
@@ -208,11 +207,10 @@ Input Requirements:
 - Surname: Use "${randomSurname}" as the surname
 - Seed: ${randomSeed}
 - UniqueID: ${uniquePromptId}
-- Position: ${i + 1} of ${nameCount}${existingNamesString}
+- Position: ${i + 1} of ${nameCount}
 
 UNIQUENESS REQUIREMENTS (CRITICAL):
 - This name must be 100% unique and different from any existing names
-- No duplicate names allowed in this generation batch
 - Each name must have distinct character combinations
 - Generate completely different names even if same gender
 
@@ -268,23 +266,23 @@ Requirements:
 - Zero tolerance for duplicates
 - JSON only, no other text`;
 
-        const completion = await openai.chat.completions.create({
-          model: "google/gemini-2.5-flash",
-          messages: [
-            {
-              role: "system",
-              content: `You are a Chinese naming expert specializing in ${planType === '4' ? 'premium personalized' : 'standard personalized'} name generation. IMPORTANT: Respond with ONLY valid JSON. No explanations, no markdown, no extra text. Start with { and end with }. Generate creative and unique Chinese names based on personal information.`
-            },
-            {
-              role: "user",
-              content: prompt
-            }
-          ],
-          temperature: planType === '4' ? 0.9 : 0.8,
-          max_tokens: 1200,
-          top_p: planType === '4' ? 0.95 : 0.9,
-        });
-
+      // Return promise for this generation
+      return openai.chat.completions.create({
+        model: "google/gemini-2.5-flash",
+        messages: [
+          {
+            role: "system",
+            content: `You are a Chinese naming expert specializing in ${planType === '4' ? 'premium personalized' : 'standard personalized'} name generation. IMPORTANT: Respond with ONLY valid JSON. No explanations, no markdown, no extra text. Start with { and end with }. Generate creative and unique Chinese names based on personal information.`
+          },
+          {
+            role: "user",
+            content: prompt
+          }
+        ],
+        temperature: planType === '4' ? 0.7 : 0.6, // Reduced temperature for faster response
+        max_tokens: 1000, // Reduced tokens for faster response
+        top_p: planType === '4' ? 0.9 : 0.8,
+      }).then(completion => {
         const responseContent = completion.choices[0].message.content;
         
         if (!responseContent) {
@@ -292,7 +290,6 @@ Requirements:
         }
 
         // Parse the JSON response
-        let generatedName: NameData;
         try {
           // Clean and extract JSON
           let cleanedResponse = responseContent.trim();
@@ -311,7 +308,7 @@ Requirements:
             }
           }
           
-          generatedName = JSON.parse(cleanedResponse);
+          const generatedName: NameData = JSON.parse(cleanedResponse);
           
           // Validate required fields
           if (!generatedName.chinese || !generatedName.pinyin || !generatedName.characters) {
@@ -321,32 +318,49 @@ Requirements:
           // Ensure style field is set correctly
           generatedName.style = planType === '4' ? 'Premium' : 'Standard';
 
-          // Check for duplicates
-          if (generatedNames.has(generatedName.chinese)) {
-            console.log(`Duplicate name detected: ${generatedName.chinese}, generating fallback...`);
-            generatedName = generateFallbackName(i, randomSurname, gender, planType);
-          }
-
-          // Add to generated names set
-          generatedNames.add(generatedName.chinese);
+          return { success: true, name: generatedName, index: i };
           
         } catch (parseError) {
           console.error(`Failed to parse AI response for name ${i + 1}:`, parseError);
-          // Generate fallback name
-          generatedName = generateFallbackName(i, randomSurname, gender, planType);
-          generatedNames.add(generatedName.chinese);
+          return { success: false, error: parseError, index: i, surname: randomSurname };
         }
-
-        names.push(generatedName);
-
-      } catch (error) {
+      }).catch(error => {
         console.error(`Error generating name ${i + 1}:`, error);
-        // Generate fallback name
-        const fallbackName = generateFallbackName(i, commonSurnames[i % commonSurnames.length], gender, planType);
+        return { success: false, error, index: i, surname: randomSurname };
+      });
+    });
+
+    // Wait for all generations to complete
+    const generationResults = await Promise.allSettled(generationPromises);
+    const aiEndTime = Date.now();
+    console.log(`AI generation completed in ${aiEndTime - aiStartTime}ms`);
+    
+    // Process results
+    generationResults.forEach((result, i) => {
+      if (result.status === 'fulfilled' && result.value.success) {
+        const nameResult = result.value;
+        const generatedName = nameResult.name;
+        
+        // Check for duplicates and handle
+        if (generatedNames.has(generatedName.chinese)) {
+          console.log(`Duplicate name detected: ${generatedName.chinese}, generating fallback...`);
+          const fallbackName = generateFallbackName(i, commonSurnames[i % commonSurnames.length], gender, planType);
+          generatedNames.add(fallbackName.chinese);
+          names.push(fallbackName);
+        } else {
+          generatedNames.add(generatedName.chinese);
+          names.push(generatedName);
+        }
+      } else {
+        // Generate fallback name for failed generations
+        const surname = result.status === 'fulfilled' && result.value.surname 
+          ? result.value.surname 
+          : commonSurnames[i % commonSurnames.length];
+        const fallbackName = generateFallbackName(i, surname, gender, planType);
         generatedNames.add(fallbackName.chinese);
         names.push(fallbackName);
       }
-    }
+    });
 
     // Save generation batch and names to database for authenticated users
     let resultBatchId: string | null = null;
@@ -449,7 +463,7 @@ Requirements:
           }
         }
 
-        // Save individual names with generation_round
+        // Batch all database operations for better performance
         if (resultBatchId) {
           const namesToInsert = names.map((name, index) => ({
             batch_id: resultBatchId,
@@ -471,40 +485,45 @@ Requirements:
             firstNameSample: namesToInsert[0]
           });
 
-          const { error: namesError } = await supabase
-            .from('generated_names')
-            .insert(namesToInsert);
+          // Perform both database operations in parallel
+          const [namesResult, logsResult] = await Promise.allSettled([
+            supabase
+              .from('generated_names')
+              .insert(namesToInsert),
+            supabase
+              .from('name_generation_logs')
+              .insert({
+                user_id: user.id,
+                plan_type: planType,
+                credits_used: parseInt(planType),
+                names_generated: names.length,
+                english_name: englishName,
+                gender: gender,
+                birth_year: birthYear,
+                has_personality_traits: !!(personalityTraits && user),
+                has_name_preferences: !!(namePreferences && user),
+                metadata: {
+                  generation_details: {
+                    name_count: names.length,
+                    generation_timestamp: new Date().toISOString(),
+                    batch_id: resultBatchId,
+                    generation_round: currentGenerationRound,
+                    is_continuation: continueBatch || false
+                  }
+                }
+              })
+          ]);
 
-          if (namesError) {
-            console.error('Failed to save generated names:', namesError);
+          if (namesResult.status === 'rejected') {
+            console.error('Failed to save generated names:', namesResult.reason);
           } else {
             console.log(`Successfully saved ${names.length} names to batch ${resultBatchId}, round ${currentGenerationRound}`);
           }
-        }
 
-        // Also log to the existing analytics table
-        await supabase
-          .from('name_generation_logs')
-          .insert({
-            user_id: user.id,
-            plan_type: planType,
-            credits_used: parseInt(planType),
-            names_generated: names.length,
-            english_name: englishName,
-            gender: gender,
-            birth_year: birthYear,
-            has_personality_traits: !!(personalityTraits && user),
-            has_name_preferences: !!(namePreferences && user),
-            metadata: {
-              generation_details: {
-                name_count: names.length,
-                generation_timestamp: new Date().toISOString(),
-                batch_id: resultBatchId,
-                generation_round: currentGenerationRound,
-                is_continuation: continueBatch || false
-              }
-            }
-          });
+          if (logsResult.status === 'rejected') {
+            console.error('Failed to save generation log:', logsResult.reason);
+          }
+        }
       } catch (error) {
         console.error('Failed to save generation batch:', error);
       }
@@ -529,7 +548,12 @@ Requirements:
       } : null,
       message: continueBatch 
         ? `Generated ${names.length} more names for your batch (Round ${currentGenerationRound})!`
-        : `Generated ${names.length} unique Chinese names successfully!`
+        : `Generated ${names.length} unique Chinese names successfully!`,
+      performance: {
+        totalTime: Date.now() - startTime,
+        aiTime: aiEndTime - aiStartTime,
+        dbTime: Date.now() - startTime - (aiEndTime - aiStartTime)
+      }
     });
 
   } catch (error) {
