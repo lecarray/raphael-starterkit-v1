@@ -35,6 +35,21 @@ interface NameData {
   style: string;
 }
 
+interface GenerationSuccess {
+  success: true;
+  name: NameData;
+  index: number;
+}
+
+interface GenerationFailure {
+  success: false;
+  error: unknown;
+  index: number;
+  surname: string;
+}
+
+type GenerationResult = GenerationSuccess | GenerationFailure;
+
 export async function POST(request: NextRequest) {
   console.log('=== Chinese Names Generate API Called ===');
   const startTime = Date.now(); // Performance tracking
@@ -318,15 +333,15 @@ Requirements:
           // Ensure style field is set correctly
           generatedName.style = planType === '4' ? 'Premium' : 'Standard';
 
-          return { success: true, name: generatedName, index: i };
+          return { success: true as const, name: generatedName, index: i };
           
         } catch (parseError) {
           console.error(`Failed to parse AI response for name ${i + 1}:`, parseError);
-          return { success: false, error: parseError, index: i, surname: randomSurname };
+          return { success: false as const, error: parseError, index: i, surname: randomSurname };
         }
       }).catch(error => {
         console.error(`Error generating name ${i + 1}:`, error);
-        return { success: false, error, index: i, surname: randomSurname };
+        return { success: false as const, error, index: i, surname: randomSurname };
       });
     });
 
@@ -338,6 +353,7 @@ Requirements:
     // Process results
     generationResults.forEach((result, i) => {
       if (result.status === 'fulfilled' && result.value.success) {
+        // TypeScript knows this is GenerationSuccess due to discriminated union
         const nameResult = result.value;
         const generatedName = nameResult.name;
         
@@ -353,7 +369,7 @@ Requirements:
         }
       } else {
         // Generate fallback name for failed generations
-        const surname = result.status === 'fulfilled' && result.value.surname 
+        const surname = result.status === 'fulfilled' && !result.value.success
           ? result.value.surname 
           : commonSurnames[i % commonSurnames.length];
         const fallbackName = generateFallbackName(i, surname, gender, planType);
